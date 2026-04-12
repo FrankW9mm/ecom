@@ -1,21 +1,45 @@
-import React from 'react'
+import React, { use } from 'react'
 import Header from '../components/Header';
+import axios from 'axios'
 import { useState, useEffect } from 'react';
-import { products } from '../data/products'
+// import { products } from '../data/products'
 import './header.css';
 import './HomePage.css';
 const HomePage = () => {
-  const [product, SetProduct] = useState();
+  const [product, setProduct] = useState([]);
+  const [cart,setCart] = useState([]);
+  useEffect(()=>{
+      getProduct();
+
+    axios.get('http://localhost:3000/api/cart-items')
+    .then((response)=>{
+      setCart(response.data);
+      
+    })
+        
+  },[]);
+
+  const getProduct = async()=> {
+    const response = await fetch('http://localhost:3000/api/products');
+    const product = await response.json();
+    console.log(product);
+    setProduct(product);
+  }
+
+  // const test=getProduct();
+  // console.log(test);
+  
+  
   return (
     <>
       <title>Ecomerce</title>
-      <Header />
+      <Header cart={cart} />
 
       <div className="home-page">
         <div className="products-grid">
 
 
-          {products.map((singleProduct) => {
+          {product.map((singleProduct) => {
             return (
               <div key={singleProduct.id} className="product-container">
                 <div className="product-image-container">
