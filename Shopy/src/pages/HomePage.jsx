@@ -5,22 +5,23 @@ import { useState, useEffect } from 'react';
 // import { products } from '../data/products'
 import './header.css';
 import './HomePage.css';
-const HomePage = () => {
+const HomePage = ({ cart }) => {
+
   const [product, setProduct] = useState([]);
-  const [cart,setCart] = useState([]);
+  
+
   useEffect(()=>{
       getProduct();
 
-    axios.get('http://localhost:3000/api/cart-items')
+    axios.get('/api/cart-items')
     .then((response)=>{
       setCart(response.data);
-      
     })
         
   },[]);
 
   const getProduct = async()=> {
-    const response = await fetch('http://localhost:3000/api/products');
+    const response = await fetch('/api/products');
     const product = await response.json();
     console.log(product);
     setProduct(product);
