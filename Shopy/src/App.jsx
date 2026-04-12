@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage'
 import CheckOutPage from './pages/CheckOutPage'
 import OrdersPage from './pages/OrdersPage'
 import { Routes , Route } from 'react-router';
+import TrackingPage from './pages/TrackingPage'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route index element={<HomePage/>} />
       <Route path='checkout' element={<CheckOutPage/>} />
       <Route path='orders' element={<OrdersPage/>} />
+      <Route path='tracking' element={<TrackingPage/> } />
     </Routes>
   )
 }
