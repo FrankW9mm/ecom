@@ -1,0 +1,29 @@
+.container{
+    /* margin-top: 200px; */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.text{
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-weight: 100;
+}
+
+.btn{
+    width: 250px;
+    padding: 20px;
+    align-items: center;
+    background-color: rgb(25, 135, 84);
+    border: none;
+    border-radius: 15px;
+    color: #ffffff;
+    font-weight: 60;
+    font-size: 19px;
+}
+.btn:hover{
+    background-color: rgb(40, 180, 114);
+}
