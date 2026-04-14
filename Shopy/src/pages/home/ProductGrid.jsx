@@ -1,41 +1,8 @@
-import React, { use } from 'react'
-import Header from '../components/Header';
-import axios from 'axios'
-import { useState, useEffect } from 'react';
-import { formatMoney } from '../utils/money';
-// import { products } from '../data/products'
-import './header.css';
-import './HomePage.css';
-const HomePage = ({ cart }) => {
-
-  const [product, setProduct] = useState([]);
-  
-
-  useEffect(()=>{
-      getProduct();
-
-    
-        
-  },[]);
-
-  const getProduct = async()=> {
-    const response = await fetch('/api/products');
-    const product = await response.json();
-    console.log(product);
-    setProduct(product);
-  }
-
-  // const test=getProduct();
-  // console.log(test);
-  
-  
+import React from 'react'
+import { formatMoney } from '../../utils/money'
+const ProductGrid = ({product}) => {
   return (
-    <>
-      <title>Ecomerce</title>
-      <Header cart={cart} />
-
-      <div className="home-page">
-        <div className="products-grid">
+    <div className="products-grid">
 
 
           {product.map((singleProduct) => {
@@ -96,9 +63,7 @@ const HomePage = ({ cart }) => {
 
           
         </div>
-      </div>
-    </>
   )
 }
 
-export default HomePage
+export default ProductGrid

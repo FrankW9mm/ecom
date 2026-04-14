@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import axios from 'axios'
 import './orders.css'
-import Header from '../components/Header'
+import Header from '../../components/Header'
 import dayjs from 'dayjs'
 const OrdersPage = ({ cart }) => {
   const [orders, setOrders] = useState([]);

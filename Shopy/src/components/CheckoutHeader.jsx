@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
-const CheckoutHeader = () => {
+const CheckoutHeader = ({items}) => {
+  
   return (
     <div className="checkout-header">
       <div className="header-content">
@@ -13,7 +14,7 @@ const CheckoutHeader = () => {
 
         <div className="checkout-header-middle-section">
           Checkout (<Link className="return-to-home-link"
-            to="/">3 items</Link>)
+            to="/">{items.length}</Link>)
         </div>
 
         <div className="checkout-header-right-section">
