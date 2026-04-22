@@ -4,10 +4,11 @@ import Header from '../../components/Header';
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 import { formatMoney } from '../../utils/money';
+
 // import { products } from '../data/products'
 import '../header.css';
 import './HomePage.css';
-const HomePage = ({ cart }) => {
+const HomePage = ({ cart, loadCart }) => {
 
   const [product, setProduct] = useState([]);
   
@@ -36,7 +37,7 @@ const HomePage = ({ cart }) => {
       <Header cart={cart} />
 
       <div className="home-page">
-        <ProductGrid product={product} />
+        <ProductGrid product={product} loadCart={loadCart} />
       </div>
     </>
   )
